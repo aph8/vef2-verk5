@@ -16,9 +16,8 @@ export async function generateStaticParams() {
 }
 
 export default async function RiverPage({ params }: Props) {
-  const awaitedParams = await params;
-  const river = await getRiverBySlug(awaitedParams.slug);
-  
+  const river = await getRiverBySlug(params.slug);
+
   if (!river) {
     notFound();
   }
