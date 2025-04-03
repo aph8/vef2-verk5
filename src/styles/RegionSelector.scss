@@ -1,0 +1,22 @@
+.region-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  label {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  select {
+    padding: 0.6rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+
+    &:focus {
+      outline: none;
+      border-color: #0070f3;
+    }
+  }
+}
