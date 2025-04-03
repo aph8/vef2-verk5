@@ -1,4 +1,5 @@
 import { GraphQLClient } from 'graphql-request';
+import { StructuredTextDocument } from 'react-datocms';
 
 const endpoint = 'https://graphql.datocms.com/';
 
@@ -23,7 +24,7 @@ export interface River {
   title: string;
   slug: string;
   description: {
-    value: any;
+    value: StructuredTextDocument ;
   };
   image: {
     responsiveImage: ResponsiveImage;
@@ -78,7 +79,7 @@ export async function getRiverBySlug(slug: string): Promise<River | undefined> {
 export interface HomePageContent {
   title: string;
   text: {
-    value: any;
+    value: StructuredTextDocument ;
   };
 }
 

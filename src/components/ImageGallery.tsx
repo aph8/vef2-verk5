@@ -14,9 +14,7 @@ interface ImageGalleryProps {
 
 export default function ImageGallery({
   images,
-  containerHeight = 600,
-  customWidth = 1600,
-  quality = 100
+  containerHeight = 600
 }: ImageGalleryProps) {
 
   const [current, setCurrent] = useState(0);
