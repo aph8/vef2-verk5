@@ -2,12 +2,7 @@ import { notFound } from 'next/navigation';
 import { getAllRivers, getRiverBySlug } from '@/lib/datocms';
 import RiverDetail from '@/components/RiverDetail';
 
-interface Props {
-  params: {
-    slug: string;
-  };
-}
-
+// Dynamic slugs fyrir static paths
 export async function generateStaticParams() {
   const rivers = await getAllRivers();
   return rivers.map((river) => ({
@@ -15,8 +10,12 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function RiverPage({ params }: Props) {
-  const river = await getRiverBySlug(params.slug);
+// 👇 Hér látum við "params" vera Promise og awaitum það
+export default async function Page(props: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await props.params;
+  const river = await getRiverBySlug(slug);
 
   if (!river) {
     notFound();
